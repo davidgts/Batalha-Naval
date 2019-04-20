@@ -3,9 +3,10 @@
 #include<conio.h>
 #include<locale.h>
 #define MAX 9
-void menu();//Funï¿½ï¿½o menu ultilizada pra selecionar a opï¿½ï¿½o do usuario e chamar a funï¿½ï¿½o nescessaria para dar prosseguimento a aplicaï¿½ï¿½o ou sair do programa
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+void menu();//Função menu ultilizada pra selecionar a opção do usuario e chamar a função nescessaria para dar prosseguimento a aplicação ou sair do programa
 void gameLocal();//Faz todo o controle do jogo local
-void limpaMatriz(char x[MAX][MAX]);// Funï¿½ï¿½o que faz a matriz receber seus valores como *
+void limpaMatriz(char x[MAX][MAX]);// Função que faz a matriz receber seus valores como *
 void apresentaTabuleiro(char x[MAX][MAX],int player);// mostra todos os dados da matriz de forma tabulada
 void setBarcos(char x[MAX][MAX],int player);// Coloca os elementos no tapuleiro
 int regras(char x[MAX][MAX],int l,int c,char opc,int qtdElementos);
@@ -17,21 +18,21 @@ menu();
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
  void menu(){
    setlocale(LC_ALL, "Portuguese");
-   int opc;//armazenarï¿½ a opï¿½ï¿½o do usuario
+   int opc;//armazenará a opção do usuario
    do {
      system("cls");
      printf("|------------------------------------------|\n");
      printf("|              Batalha Naval               |\n");
      printf("|                [1]-Local                 |\n");
      printf("|                [2]-Multiplayer           |\n");
-     printf("|                [3]-Instruï¿½ï¿½es            |\n");
+     printf("|                [3]-Instruções            |\n");
      printf("|                [4]-sobre                 |\n");
      printf("|                [0]-sair                  |\n");
      printf("|------------------------------------------|\n");
      printf("Opc:");
      scanf("%d",&opc);
      system("cls");
-     switch(opc){ //inicializarï¿½ a aplicaï¿½ï¿½o selecionada pelo usuario
+     switch(opc){ //inicializará a aplicação selecionada pelo usuario
        case 1:{
          gameLocal();
          system("pause");
@@ -42,29 +43,29 @@ menu();
          break;
 		      }
        case 3:{
-         printf("|Instruï¿½ï¿½es iniciais| \n\n");
-         printf("1-Cada jogador distribui suas embarcaï¿½ï¿½es pelo tabuleiro.\nIsso ï¿½ feito informando qual embarcaï¿½ï¿½o e quais celulas\nos X sï¿½o referentes ï¿½s suas embarcaï¿½ï¿½es. \n\n");
-         printf("2-Nï¿½o ï¿½ permitido que 2 embarcaï¿½ï¿½es se toquem\ndeve sempre existir um espaï¿½o de uma celula entre elas\n\n");
+         printf("|Instruções iniciais| \n\n");
+         printf("1-Cada jogador distribui suas embarcações pelo tabuleiro.\nIsso é feito informando qual embarcação e quais celulas\nos X são referentes às suas embarcações. \n\n");
+         printf("2-Não é permitido que 2 embarcações se toquem\ndeve sempre existir um espaço de uma celula entre elas\n\n");
 
 		 printf("|Jogando| \n\n");
-		 printf("Na sua vez de jogar, seguirï¿½ o seguinte procedimento:\n\n");
-		 printf("1-Cada jogador farï¿½ um disparo por vï¿½z,\nindicando as coordenadas em linhas e colunas do tabuleiro inimigo\n\n");
-		 printf("2- A cada tiro acertado em um alvo,sera marcado no tabuleiro do oponente\num icone para que possa informar quando a enbarcaï¿½ï¿½o for afundada.\n\n");
-		 printf("3- O jogador vence quando destruir todas as suas embarcaï¿½ï¿½es do inimigo\n\n");
+		 printf("Na sua vez de jogar, seguirá o seguinte procedimento:\n\n");
+		 printf("1-Cada jogador fará um disparo por vêz,\nindicando as coordenadas em linhas e colunas do tabuleiro inimigo\n\n");
+		 printf("2- A cada tiro acertado em um alvo,sera marcado no tabuleiro do oponente\num icone para que possa informar quando a enbarcação for afundada.\n\n");
+		 printf("3- O jogador vence quando destruir todas as suas embarcações do inimigo\n\n");
 
          system("pause");
 		 break;
 		      }
        case 4:{
-		 	     printf("Este software foi desenvolvido como objetivo de ser um\nProjeto para a disciplina de-Algoritmo e Programaï¿½ï¿½o Estruturada\n");
-		 	     printf("Onde ï¿½ nescessario criar um jogo de batalha naval\nultilizando alguns dos assunto dados em sala de aula\n\n");
+		 	     printf("Este software foi desenvolvido como objetivo de ser um\nProjeto para a disciplina de-Algoritmo e Programação Estruturada\n");
+		 	     printf("Onde é nescessario criar um jogo de batalha naval\nultilizando alguns dos assunto dados em sala de aula\n\n");
 		 	     printf("--------------------------------------------------------------------\n");
 
 		         printf("Este Programa foi desenvolvido pela equipe:\n");
 		 	     printf("David Machado - Matricula 20161380029\n");
 		 	     printf("Jorge Gomes - Matricula 20161380001\n");
 		 	     printf("--------------------------------------------------------------------\n");
-		 	     printf("                                                    Versï¿½o 0.0.8.0\n\n");
+		 	     printf("                                                    Versão 0.0.8.0\n\n");
 
 		   	     system("pause");
 			     break;
@@ -77,7 +78,7 @@ menu();
 	    int l,c,i,p=1,opc;
     	char player1[MAX][MAX];// variavel correspondente ao tabuleiro de cada jogardor
     	char player2[MAX][MAX];
-    	limpaMatriz(player1);//chama a funï¿½ï¿½o limpaMatriz
+    	limpaMatriz(player1);//chama a função limpaMatriz
     	setBarcos(player1,1);
     	limpaMatriz(player2);
 		setBarcos(player2,2);
@@ -126,10 +127,10 @@ menu();
          system("cls");
          apresentaTabuleiro(x,player);
          printf("\n-----------------------------------------\n");
-         puts("1 porta-aviï¿½es (4 cï¿½lulas adjacentes) [p]");
-         puts("2 encouraï¿½ados (3 cï¿½lulas adjacentes) [e]");
-         puts("3 cruzadores (2 cï¿½lulas adjacentes)   [c]");
-         puts("4 submarinos (1 cï¿½lula apenas)        [s]");
+         puts("1 porta-aviões (4 células adjacentes) [p]");
+         puts("2 encouraçados (3 células adjacentes) [e]");
+         puts("3 cruzadores (2 células adjacentes)   [c]");
+         puts("4 submarinos (1 célula apenas)        [s]");
          printf("opc:");
          barco=getche();
      }while((barco!='e')&&(barco!='s')&&(barco!='p')&&(barco!='c'));
@@ -185,7 +186,7 @@ menu();
      }while((cont!=5));
     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    int regras(char x[MAX][MAX],int l,int c,char opc,int qtdElementos){//testa as condiï¿½ï¿½es do jogo
+    int regras(char x[MAX][MAX],int l,int c,char opc,int qtdElementos){//testa as condições do jogo
       int i;
       if(opc=='h'){
        for(i=c;i<=c+qtdElementos;i++){
@@ -193,7 +194,7 @@ menu();
    ///////////////////////////////////////////////////////
            if((l==0)&&(c == 0) ){
              if ((x[l+1][i])!='*'){
-                puts("nï¿½o pode");
+                puts("não pode");
                 return 0;
              }
         }else{
